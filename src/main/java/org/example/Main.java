@@ -1,31 +1,33 @@
 package org.example;
 
-import org.example.student.Teacher;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter numbers ");
-        int [] a=new int[sc.nextInt()];
-        System.out.println("Enter massiv");
-        for (int i = 0; i < a.length; i++) {
-            a[i]= sc.nextInt();
-        }
-        int katta=0;
-        int[] b=new int[a.length];
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a.length; j++) {
-                if (a[i]<a[j]){
-                    katta=a[i];
-                    a[i]=a[j];
-                    a[j]=katta;
-                }
+    public static List<String> fizzBuzz(int n){
+        List<String> answer=new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                answer.add("FizzBuzz");
+            } else if (i % 3 == 0) {
+                answer.add("Fizz");
+            } else if (i % 5 == 0) {
+                answer.add("Buzz");
+            } else {
+                answer.add(String.valueOf(i));
             }
         }
-        for (int i = 0; i < a.length; i++) {
-            System.out.print("   "+a[i]);
+
+        return answer;
+
+    }
+    public static void main(String[] args) {
+        int n = 15;
+        List<String> result = fizzBuzz(n);
+
+        for (String s : result) {
+            System.out.println(s);
         }
 
     }
